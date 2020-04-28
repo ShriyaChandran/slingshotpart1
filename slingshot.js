@@ -7,6 +7,7 @@ class Slingshot{
             length: 9
         }
         this.pointB = pointB
+        this.bodyA = bodyA
         this.sling = Constraint.create(options);
         World.add(world, this.sling);
     }

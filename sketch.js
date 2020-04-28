@@ -1,6 +1,6 @@
 const Engine = Matter.Engine;
 const World= Matter.World;
-const bodies = Matter.Bodies;
+const Bodies = Matter.Bodies;
 const Constraint = Matter.Constraint;
 
 var engine,world;
@@ -20,8 +20,30 @@ function setup(){
     box4 = new Box(180,200,40,40);
     box5 = new Box(220,200,40,40);
     box6 = new Box(260,200,40,40);
-    slingshot = new SlingShot(ball.body,{
+    slingshot = new Slingshot(ball.body,{
         x: 40,
         y: 40 
     });
+}
+
+function draw(){
+    background(0);
+    Engine.update(engine);
+    ball.display();
+    box1.display();
+    box2.display();
+    box3.display();
+    box4.display();
+    box5.display();
+    box6.display();
+    slingshot.display();
+}
+
+function mouseDragged(){
+    Matter.Body.setPosition(ball.body, {x: 40 , y: 40});
+}
+
+
+function mouseReleased(){
+    slingshot.fly();
 }
